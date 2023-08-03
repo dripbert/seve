@@ -157,7 +157,7 @@ proc curs_up(): void =
       posx = get_eol(buffer, posy)
 proc curs_down(): void =
   if line_count_get(buffer) > posy + 1:
-    if get_eol(buffer, posy) > get_eol(buffer, posy + 1):
+    if posx > get_eol(buffer, posy + 1):
       posx = get_eol(buffer, posy + 1)
     posy += 1
 
