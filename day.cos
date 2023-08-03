@@ -1,0 +1,5 @@
+( 1 print ) current_day :Monday = if
+( 2 print ) current_day :Tuesday = if
+( 3 print ) current_day :Wednesday = if
+( 4 print ) current_day :Thursday = if
+( 5 print ) current_day :Friday = if

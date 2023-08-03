@@ -1,0 +1,15 @@
+:line-num-bg :red export
+:reload-conf 0 exec
+400 sleep
+:line-num-bg :green export
+:reload-conf 0 exec
+400 sleep
+:line-num-bg :cyan export
+:reload-conf 0 exec
+400 sleep
+:line-num-bg :yellow export
+:reload-conf 0 exec
+400 sleep
+:line-num-bg :magenta export
+:reload-conf 0 exec
+400 sleep
