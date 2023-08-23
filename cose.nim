@@ -112,7 +112,7 @@ proc exec_args(args: seq[string]): void =
       var dt: string = stack.pop()[1]
       tb.write(dx, dy, reset_style, bg_black, fg_white, dt)
       tb.display
-    of "(": in_block += 2
+    of "(": in_block += 1
     of ")": in_block -= 1 
     else:
       if is_num(arg):
