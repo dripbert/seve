@@ -17,5 +17,7 @@ run_test()
 run_test `./seve -cs tests/add.cos` "100"
 run_test `./seve -cs tests/dup.cos` "muck"
 run_test `./seve -cs tests/duup.cos` "2"
+run_test `./seve -cs tests/if.cos` ""
+run_test `./seve -cs tests/if1.cos` "1"
 
 echo "Passed ${passed_count}/${run_count}"
