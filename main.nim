@@ -109,14 +109,13 @@ proc text_to_scope(text: string, x1: int, y1: int, x2: int, y2: int): string =
 
 
 proc render_text(text: string, cx: int, cy: int): void =
-
   var x: int = 0
   var y: int = 0
   var ln_offset: int = 0 # line number offset
   var sc: int = cy # curser position on the scope in contrast to cy, which is on the buffer
 
   var sbuffer: string = text
-  if cy > height - 2: 
+  if cy - ln_offset > height - 2: 
     ln_offset = (cy div (height - 1)) * (height - 1)
     sc = cy - ln_offset
     sbuffer = text_to_scope(text, 0, ln_offset, 0, ln_offset + height) # sbuffer is the part of the buffer, that is within the scope
