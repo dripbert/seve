@@ -30,6 +30,8 @@ proc resolve_flags(): void =
         exec_script(param_str(i + 1))
         quit(0)
       else:
+        if param_str(i)[0] != '-':
+           file_open(param_str(i))
         discard
          
 
