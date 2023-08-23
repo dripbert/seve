@@ -369,7 +369,7 @@ proc main_loop(): void =
     sleep(40 - (int)((cpu_time() - t) * 1000))
 
 # Beware of off-by-one-errors! They're everywhere.
-# TODO: fix the background of a line number if line is greater than 99
+
 # TODO: when backspacing across a line break, don't move curser to end of line
 # TODO: add support for multiple buffers
 # TODO: handle upper case letters for the command prompt
