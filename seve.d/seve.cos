@@ -1,0 +1,7 @@
+:true :line-nums export
+:cyan :line-num-bg export
+:black :line-num-fg export
+
+( :Es_ist_Montag_meine_Mümmler 4 0 draw ) current_day :Monday = if
+( :Es_ist_Mittwoch_meine_Kerle 4 0 draw ) current_day :Wednesday = if
+( :Es_ist_Femijungen_Freitag 4 0 draw ) current_day :Friday = if
