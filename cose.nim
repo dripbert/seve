@@ -42,7 +42,7 @@ var stack:  seq[(cose_type, string)] = @[]
 proc check_stack_size(n: int): void =
   if len(stack) < n:
     cose_error("not enough elements on the stack")
-  return
+
 proc duup(arg1: (cose_type, string), arg2: (cose_type, string)): void =
   stack &= arg2
   stack &= arg1
@@ -99,11 +99,11 @@ proc exec_args(args: seq[string]): void =
     of "if":
       check_stack_size(1)
       if stack.pop()[1] == "1":
-        exec_args(bargs)
+        exec_args(b_args)
       b_args = @[]
     of "loop":
       check_stack_size(1)
-      loop_args(bargs, parse_int(stack.pop()[1]))
+      loop_args(b_args, parse_int(stack.pop()[1]))
       b_args = @[]
     of "draw":
       check_stack_size(3)
@@ -112,8 +112,11 @@ proc exec_args(args: seq[string]): void =
       var dt: string = stack.pop()[1]
       tb.write(dx, dy, reset_style, bg_black, fg_white, dt)
       tb.display
-    of "(": in_block += 1
-    of ")": in_block -= 1 
+    of "(":
+      if in_block < 1:
+        b_args = @[]
+      in_block += 1
+    of ")": continue
     else:
       if is_num(arg):
         stack &= (ct_int, arg)
@@ -131,6 +134,6 @@ proc exec_script(path: string): void =
     text = read_all(f)
     close(f)
 
-  var args:   seq[string] = split(multi_replace(text, ("\n", " ")), ' ')
-  exec_args(args)
+    var args:   seq[string] = split(multi_replace(text, ("\n", " ")), ' ')
+    exec_args(args)
 
